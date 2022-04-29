@@ -33,10 +33,16 @@ fetch('https://test.api.amadeus.com/v1/security/oauth2/token', requestOptions)
 //Funcion que voy a llamar para hacer la busqueda con 3 parametros Token generado, lugar de origen y destino
 function flightSearch() {
 	console.log(apiToken);
-	origin = document.getElementById('origin').value;
+
+	const origin = document.getElementById('origin').value;
 	console.log(origin);
-	destination = document.getElementById('destination').value;
+
+	const destination = document.getElementById('destination').value;
 	console.log(destination);
+
+	const departureDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`;
+	console.log(departureDate);
+
 	var myHeaders = new Headers();
 	myHeaders.append('Authorization', `Bearer ${apiToken}`);
 
@@ -47,7 +53,7 @@ function flightSearch() {
 	};
 
 	fetch(
-		`https://test.api.amadeus.com/v1/shopping/flight-dates?origin=${origin}&destination=${destination}&departureDate=2022-04-28&oneWay=true`,
+		`https://test.api.amadeus.com/v1/shopping/flight-dates?origin=${origin}&destination=${destination}&departureDate=2022-04-29&oneWay=true`,
 		requestOptions
 	)
 		.then((response) => response.json())
@@ -60,3 +66,13 @@ function flightSearch() {
 		})
 		.catch((error) => console.log('error', error));
 }
+
+//Auto complete del formulario
+function initialize() {
+	var input = document.getElementById('origin');
+	new google.maps.places.Autocomplete(input).setTypes(['airport']);
+	var input2 = document.getElementById('destination');
+	new google.maps.places.Autocomplete(input2).setTypes(['airport']);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);

@@ -1,0 +1,24 @@
+{
+  "name": "urgent-fly-hackaboss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdgarIvanEspinoza/urgent-fly-hackaboss.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdgarIvanEspinoza/urgent-fly-hackaboss/issues"
+  },
+  "homepage": "https://github.com/EdgarIvanEspinoza/urgent-fly-hackaboss#readme",
+  "dependencies": {
+    "airport-autocomplete-js": "^2.1.4",
+    "eslint": "^8.14.0",
+    "prettier": "^2.6.2"
+  }
+}

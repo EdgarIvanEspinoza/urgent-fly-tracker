@@ -5,25 +5,47 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/stylesheet/style.css" />
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDLaH5LbSH4axIABovLOAJGnS6_W3xvBw&v=3.exp&libraries=places"></script>
+
 		<title>Urgent Fly Tracker</title>
 	</head>
 	<body>
-		<h1>Urgent Fly for Tomorrow</h1>
-		<fieldset>
-			<input type="text" name="origin" id="origin" placeholder="Origin" />
-			<input
-				type="text"
-				name="destination"
-				id="destination"
-				placeholder="Destination"
-			/>
-			<button type="submit" onclick="flightSearch()">Buscar</button>
-		</fieldset>
-		<h3>
-			El vuelo mas barato de <span id="originResult">Origen</span> a
-			<span id="destinationResult">Destino</span> cuesta
-			<span id="priceResult">Precio</span>
-		</h3>
+		<section id="searchArea">
+			<h1>Urgent Fly for Tomorrow</h1>
+			<fieldset>
+				<label for="origin">Origin</label>
+				<input type="text" name="origin" id="origin" placeholder="Origin" />
+				<br />
+				<label for="destination">Destination</label>
+				<input
+					type="text"
+					name="destination"
+					id="destination"
+					placeholder="Destination"
+				/>
+				<br />
+				<button type="submit" onclick="flightSearch()">Search</button>
+			</fieldset>
+		</section>
+		<section id="responseArea">
+			<h3>
+				The cheapest flight from <span id="originResult">Origin</span> to
+				<span id="destinationResult">Destination</span> cost
+				<span id="priceResult">Price</span> for tomorrow.
+			</h3>
+			<button>Buy flight</button>
+		</section>
+		<footer>
+			<h5>
+				Developed by
+				<a href="https://www.linkedin.com/in/edgarivanespinoza/"
+					>Ivan Espinoza</a
+				>
+				for <br />
+				<a href="https://powercoders.org/country/spain/">Powercoders</a> and
+				<a href="https://www.hackaboss.com/">Hack a Boss</a>
+			</h5>
+		</footer>
 	</body>
 	<script src="script.js"></script>
 </html>
