@@ -11,7 +11,7 @@ html {
 }
 
 body {
-	background: url('/img/FondoAvion.png');
+	background: url('../img/FondoAvion.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position-y: 80px;
@@ -111,7 +111,7 @@ fieldset > button {
 /* Area de respuesta  */
 
 #bodyResults {
-	background-image: url('/img/FondoPag2.png');
+	background-image: url('../img/FondoPag2.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -214,6 +214,10 @@ fieldset > button {
 	font-style: italic;
 	padding: 1rem 1rem;
 	border-radius: 0.5rem;
+}
+
+#newFlightButton {
+	background-color: #2c8cbd !important;
 }
 
 #responseArea > div > p {

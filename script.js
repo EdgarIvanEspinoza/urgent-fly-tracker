@@ -1,6 +1,6 @@
 let apiToken = '';
 var optionsOrigin = {
-	url: '/airports.json',
+	url: 'airports.json',
 
 	getValue: function (item) {
 		return item.City + ' - ' + item.IATA;
@@ -23,7 +23,7 @@ var optionsOrigin = {
 	},
 };
 var optionsDestination = {
-	url: '/airports.json',
+	url: 'airports.json',
 
 	getValue: function (item) {
 		return item.City + ' - ' + item.IATA;

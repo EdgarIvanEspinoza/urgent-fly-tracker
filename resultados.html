@@ -4,27 +4,27 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/stylesheet/style.css" />
+		<link rel="stylesheet" href="./stylesheet/style.css" />
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<link
 			rel="stylesheet"
 			href="./extras/easy-autocomplete/dist/easy-autocomplete.min.css"
 		/>
 		<script src="./extras/easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
-		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-		<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
 
 		<title>Your flight</title>
 	</head>
 	<body id="bodyResults">
 		<header>
-			<img src="/img/logo.png" alt="logo" />
-			<a href="./index.html"><h1>Espinoza Airline</h1></a>
+			<img src="./img/logo.png" alt="logo" />
+			<a href="./index.html"><h1>Espinoza Airlines</h1></a>
 		</header>
 		<div class="top-banner">
 			<section id="flightDetails">
 				<p>
-					<img src="/img/gps.png" alt="pin" />
+					<img src="./img/gps.png" alt="pin" />
 					<span id="originResult">Origin</span>
 					-
 					<span id="destinationResult">Destination</span>
@@ -38,29 +38,31 @@
 		</div>
 		<section id="responseArea">
 			<div class="boxed">
-				<img src="/img/avion2.gif" alt="search" />
+				<img src="./img/avion2.gif" alt="search" />
 				<h2>$ <span id="priceResult">Price</span></h2>
 				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 					><button>Buy ticket</button></a
 				>
-
-				<p><img src="/img/plane-ticket.png" alt="ticket" />The best offer</p>
+				<p><img src="./img/plane-ticket.png" alt="ticket" />The best offer</p>
+				<a href="./index.html"
+					><button id="newFlightButton">Search new Flight</button></a
+				>
 			</div>
 		</section>
 		<footer>
 			<h5>Follow us</h5>
 			<div id="social">
 				<a href="https://https://www.facebook.com/IvanEspinozaSound"
-					><img src="/img/facebook.png" alt="facebook"
+					><img src="./img/facebook.png" alt="facebook"
 				/></a>
 				<a href="https://www.instagram.com/ivanespinozasound"
-					><img src="/img/instagram.png" alt="instagram"
+					><img src="./img/instagram.png" alt="instagram"
 				/></a>
 				<a href="https://www.linkedin.com/in/edgarivanespinoza/"
-					><img src="/img/linkedin.png" alt="linkedin"
+					><img src="./img/linkedin.png" alt="linkedin"
 				/></a>
 				<a href="https://www.youtube.com/watch?v=L_jWHffIx5E"
-					><img src="/img/youtube.png" alt="Youtube"
+					><img src="./img/youtube.png" alt="Youtube"
 				/></a>
 			</div>
 			<h5 id="developedBy">
@@ -74,7 +76,7 @@
 			</h5>
 		</footer>
 	</body>
-	<script src="script.js"></script>
+	<script src="./script.js"></script>
 	<script>
 		const departureDate = localStorage.getItem('departureDate');
 		document.getElementById('originResult').innerHTML =
