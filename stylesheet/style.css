@@ -50,6 +50,7 @@ fieldset {
 	border: none;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-evenly;
 }
 
 .boxed {
@@ -57,32 +58,34 @@ fieldset {
 	box-shadow: rgba(0, 0, 0, 0.319) 0px 20px 25px -5px,
 		rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 	border-radius: 10%;
-	padding: 2rem;
+	padding: 1.5rem;
 }
 
 .boxed > label {
-	font-size: 1rem;
+	font-size: 1.3rem;
 	font-weight: 800;
 	font-style: italic;
 	color: #2c8cbd;
 }
 
 .boxed > label img {
-	width: 15px;
+	width: 12px;
 	align-self: center;
 	padding-right: 0.8rem;
 	margin-top: 0.8rem;
 }
 
-.boxed > input {
+.easy-autocomplete input {
 	border: none;
 	background-color: #f4f4f4;
 	padding: 1rem;
 	border-radius: 1rem;
-	margin-top: 0.5rem;
+	margin: 0.3rem;
+
+	color: #484c523a;
 }
 
-.boxed > input::placeholder {
+.easy-autocomplete input::placeholder {
 	color: #484c525d;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -111,16 +114,24 @@ fieldset > button {
 	background-image: url('/img/FondoPag2.png');
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position-y: 100px;
 }
 
 /* Flight Details */
 
+.top-banner {
+	width: 100%;
+	background-color: #f4f4f4;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 #flightDetails {
 	background-color: #f4f4f4;
 	width: 100%;
-	position: fixed;
 	top: 100px;
+	max-width: 50%;
 	padding: 1rem;
 	display: grid;
 	grid-template-areas: 'p p p';
@@ -155,7 +166,7 @@ fieldset > button {
 }
 
 /* Fecha de vuelo */
-#departureDate {
+#departure {
 	background-color: #f4f4f4;
 	width: 100%;
 	margin-top: -20px;
@@ -168,6 +179,12 @@ fieldset > button {
 }
 
 /* Box de response area */
+
+#responseArea {
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
 #responseArea > div {
 	display: flex;
 	flex-direction: column;

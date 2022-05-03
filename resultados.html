@@ -6,11 +6,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/stylesheet/style.css" />
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-		<!-- <link
+		<link
 			rel="stylesheet"
-			href="./node_modules/easy-autocomplete/dist/easy-autocomplete.min.css"
-		/> -->
-		<script src="./node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
+			href="./extras/easy-autocomplete/dist/easy-autocomplete.min.css"
+		/>
+		<script src="./extras/easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
 		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
 		<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
 
@@ -21,17 +21,21 @@
 			<img src="/img/logo.png" alt="logo" />
 			<a href="./index.html"><h1>Espinoza Airline</h1></a>
 		</header>
-		<section id="flightDetails">
-			<p>
-				<img src="/img/gps.png" alt="pin" />
-				<span id="originResult">Origin</span>
-				-
-				<span id="destinationResult">Destination</span>
+		<div class="top-banner">
+			<section id="flightDetails">
+				<p>
+					<img src="/img/gps.png" alt="pin" />
+					<span id="originResult">Origin</span>
+					-
+					<span id="destinationResult">Destination</span>
+				</p>
+				<p>|</p>
+				<p>Solo ida</p>
+			</section>
+			<p id="departure">
+				Flight for tomorrow: <span id="departureDate"></span>
 			</p>
-			<p>|</p>
-			<p>Solo ida</p>
-		</section>
-		<section id="departureDate">2022-03-05</section>
+		</div>
 		<section id="responseArea">
 			<div class="boxed">
 				<img src="/img/avion2.gif" alt="search" />

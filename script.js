@@ -11,7 +11,7 @@ var optionsOrigin = {
 		},
 		onSelectItemEvent: function () {
 			var value = $('#origin').getSelectedItemData().IATA; //get the id associated with the selected value
-			console.log(value);
+			// console.log(value);
 			$('#originIATA').val(value).trigger('change'); //copy it to the hidden field
 		},
 	},
@@ -34,7 +34,7 @@ var optionsDestination = {
 		},
 		onSelectItemEvent: function () {
 			var value = $('#destination').getSelectedItemData().IATA; //get the id associated with the selected value
-			console.log(value);
+			// console.log(value);
 			$('#destinationIATA').val(value).trigger('change'); //copy it to the hidden field
 		},
 	},
@@ -49,7 +49,7 @@ var optionsDestination = {
 //Genero fecha del dia siguiente
 const date = new Date();
 date.setDate(date.getDate() + 1);
-console.log(date);
+// console.log(date);
 
 // Formato de peticion de fecha
 function formatDate(date) {
@@ -79,11 +79,11 @@ fetch('https://test.api.amadeus.com/v1/security/oauth2/token', requestOptions)
 	.then((response) => response.json())
 	.then((result) => {
 		//veo y guardo token en apiToken
-		console.log(result);
+		// console.log(result);
 		apiToken = result.access_token;
-		console.log(apiToken);
-	})
-	.catch((error) => console.log('error', error));
+		// console.log(apiToken);
+	});
+// .catch((error) => console.log('error', error));
 
 //Funcion que voy a llamar para hacer la busqueda con 3 parametros Token generado, lugar de origen y destino
 function flightSearch() {
@@ -122,7 +122,7 @@ function flightSearch() {
 	)
 		.then((response) => response.json())
 		.then((result) => {
-			console.log(result);
+			// console.log(result);
 			if (result.errors != null) {
 				switch (result.errors[0].detail) {
 					case 'City/Airport must be a 3-character IATA code (https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code).':
@@ -145,7 +145,7 @@ function flightSearch() {
 			location.replace('resultados.html');
 		})
 		.catch((error) => {
-			console.log('error', error);
+			// console.log('error', error);
 		});
 }
 
@@ -156,5 +156,5 @@ $('#destination').easyAutocomplete(optionsDestination);
 
 $('#searchForm').on('submit', function (e) {
 	e.preventDefault();
-	console.log($(this).serialize());
+	// console.log($(this).serialize());
 });

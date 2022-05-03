@@ -8,9 +8,9 @@
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<link
 			rel="stylesheet"
-			href="./node_modules/easy-autocomplete/dist/easy-autocomplete.min.css"
+			href="./extras/easy-autocomplete/dist/easy-autocomplete.min.css"
 		/>
-		<script src="./node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
+		<script src="./extras/easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
 		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
 		<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
 
@@ -19,13 +19,14 @@
 	<body>
 		<header>
 			<img src="/img/logo.png" alt="logo" />
-			<a href="./index.html"><h1>Espinoza Airline</h1></a>
+			<a href="./index.html"><h1>Espinoza Airlines</h1></a>
 		</header>
 		<section id="searchArea">
 			<fieldset id="searchForm">
 				<div class="boxed">
-					<label for="origin"><img src="/img/gps.png" alt="pin" /> Origin</label
-					><br />
+					<label for="origin"
+						><img src="/img/gps.png" alt="pin" /> Origin</label
+					>
 					<input
 						type="text"
 						name="origin"
@@ -34,10 +35,9 @@
 					/>
 					<input type="hidden" id="originIATA" name="originIATA" />
 
-					<br />
 					<label for="destination"
 						><img src="/img/gps.png" alt="pin" />Destination</label
-					><br />
+					>
 					<input
 						type="text"
 						name="destination"
@@ -46,10 +46,8 @@
 					/>
 					<input type="hidden" id="destinationIATA" name="destinationIATA" />
 				</div>
-				<br />
-				<!-- <a href="/resultados.html"> -->
+
 				<button onclick="flightSearch()">Search</button>
-				<!-- </a> -->
 			</fieldset>
 		</section>
 		<footer>
