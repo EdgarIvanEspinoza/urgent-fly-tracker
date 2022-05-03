@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,500;1,700;1,800&display=swap');
 * {
 	margin: 0px;
 	padding: 0px;
@@ -8,249 +7,257 @@
 }
 
 html {
-	font-family: 'Roboto', sans-serif;
-	background-image: url('https://source.unsplash.com/random?cities');
-	width: 100%;
-	background-repeat: repeat;
-	background-position: left top;
+	font-family: 'Open Sans', sans-serif;
 }
-h1 {
-	font-size: 1.5rem;
-	color: white;
-	margin: 2rem 0rem;
-	text-shadow: 2px 2px rgba(0, 0, 0, 0.162);
-}
+
 body {
+	background: url('/img/FondoAvion.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position-y: 80px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	height: 100vh;
+	width: 100vw;
+}
+/* Header */
+header {
+	background-color: #fff;
+	width: 100vw;
+	max-height: 40px;
+	color: #2a88d9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 0rem;
+}
+header > img {
+	width: 3rem;
+}
+
+header > a > h1 {
+	size: 0.8rem;
+	text-align: center;
+	font-weight: 900;
+	font-style: italic;
 }
 
 /* Area de busqueda */
 
 fieldset {
-	background-color: rgba(255, 255, 255, 0.719);
-	border-radius: 10%;
-	padding: 1rem;
+	border: none;
 	display: flex;
 	flex-direction: column;
 }
 
-fieldset > label {
-	size: 1rem;
-	color: rgb(0, 0, 0);
+.boxed {
+	background-color: rgb(255, 255, 255);
+	box-shadow: rgba(0, 0, 0, 0.319) 0px 20px 25px -5px,
+		rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+	border-radius: 10%;
+	padding: 2rem;
+}
+
+.boxed > label {
+	font-size: 1rem;
+	font-weight: 800;
+	font-style: italic;
+	color: #2c8cbd;
+}
+
+.boxed > label img {
+	width: 15px;
+	align-self: center;
+	padding-right: 0.8rem;
+	margin-top: 0.8rem;
+}
+
+.boxed > input {
+	border: none;
+	background-color: #f4f4f4;
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-top: 0.5rem;
+}
+
+.boxed > input::placeholder {
+	color: #484c525d;
+	font-size: 1.2rem;
+	font-weight: 700;
+	font-style: italic;
+}
+
+fieldset > a {
+	display: flex;
+	justify-content: center;
 }
 
 fieldset > button {
-	color: rgb(0, 0, 0);
-	place-self: center;
+	background-color: #2a88d9;
+	border: none;
+	width: 50%;
+	align-self: center;
+	color: white;
+	margin-top: 2rem;
+	padding: 0.8rem 1rem;
+	border-radius: 0.5rem;
 }
 
 /* Area de respuesta  */
 
-#responseArea {
-	/* visibility: hidden; */
+#bodyResults {
+	background-image: url('/img/FondoPag2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-y: 100px;
+}
+
+/* Flight Details */
+
+#flightDetails {
+	background-color: #f4f4f4;
+	width: 100%;
+	position: fixed;
+	top: 100px;
+	padding: 1rem;
+	display: grid;
+	grid-template-areas: 'p p p';
+	align-items: center;
+}
+
+#flightDetails > p:first-child {
+	color: #484c5276;
+	font-weight: 900;
+	font-style: italic;
+	align-self: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#flightDetails > p:last-child {
+	color: #484c5276;
+	font-weight: 900;
+	font-style: italic;
+	align-self: center;
+	margin-right: auto;
+}
+
+#flightDetails > p:nth-child(2) {
+	color: black;
+}
+
+#flightDetails > p > img {
+	width: 15px;
+	align-self: center;
+	padding-right: 0.8rem;
+}
+
+/* Fecha de vuelo */
+#departureDate {
+	background-color: #f4f4f4;
+	width: 100%;
+	margin-top: -20px;
+	padding: 1rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 700;
+	font-style: italic;
+	color: #484c527a;
+}
+
+/* Box de response area */
+#responseArea > div {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	gap: 1rem;
 }
 
-#responseArea > h3 {
+#responseArea > div > img {
+	width: 10rem;
+}
+#responseArea > div > h2 {
 	color: white;
+	background-color: #2a88d9;
 	text-shadow: 1px 1px rgba(0, 0, 0, 0.636);
-
-	padding: 2rem;
+	align-self: center;
+	border-radius: 10px;
+	padding: 0.5rem 4rem;
+	max-width: 50%;
 }
 
-#responseArea > button {
+#responseArea > div > a > button {
 	color: rgb(255, 255, 255);
-	background-color: rgb(0, 85, 255);
+	background-color: #484c52;
+	border: none;
 	font-size: 1rem;
-	place-self: center;
+	font-weight: 700;
+	font-style: italic;
 	padding: 1rem 1rem;
-	border-radius: 10%;
+	border-radius: 0.5rem;
+}
+
+#responseArea > div > p {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+	color: #484c528a;
+	font-weight: 700;
+	font-style: italic;
+}
+
+#responseArea > div > p > img {
+	width: 30px;
 }
 
 /* Footer */
 
 footer {
-	color: white;
-	text-shadow: 1px 1px rgba(0, 0, 0, 0.636);
+	background-color: #f4f4f4;
+	width: 100%;
+	color: #484c52;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	justify-content: space-around;
 }
 
-footer > h5 > a {
+#social {
+	width: 40%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+footer > h5:first-child {
+	padding-top: 1rem;
+}
+
+footer > div > a > img {
+	width: 2rem;
+	height: 2rem;
+}
+
+#developedBy {
+	padding-bottom: 1rem;
+}
+
+#developedBy > a {
 	text-decoration: underline;
 }
 
-/* AUTOCOMPLETE */
-
-.autocomplete-result {
-	cursor: pointer;
-	margin-left: 2%;
-}
-.autocomplete-result:hover {
-	background-color: #f2f2fc;
-}
-
-.autocomplete-results {
-	position: inherit;
-	background-color: #fff;
-	z-index: 100;
-	border-radius: 0px 0px 3px 3px;
-	box-shadow: -2px 3px 18px 0px rgba(0, 0, 0, 0.75);
-}
-
-/* body {
-	display: grid;
-	font-family: Avenir;
-	-webkit-text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-}
-
-* {
-	box-sizing: border-box;
-} */
-
-.inp {
-	position: relative;
-	margin: auto;
-	width: 100%;
-	max-width: 280px;
-}
-
-.label {
-	position: absolute;
-	top: 16px;
-	left: 0;
-	font-size: 16px;
-	color: #9098a9;
-	font-weight: 500;
-	transform-origin: 0 0;
-	transition: all 0.2s ease;
-}
-
-.border {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 2px;
-	width: 100%;
-	background: #0077ff;
-	transform: scaleX(0);
-	transform-origin: 0 0;
-	transition: all 0.15s ease;
-}
-
-input {
-	-webkit-appearance: none;
-	width: 100%;
-	border: 0;
-	font-family: inherit;
-	padding: 12px 0;
-	height: 48px;
-	font-size: 16px;
-	font-weight: 500;
-	border-bottom: 2px solid #c8ccd4;
-	background: none;
-	border-radius: 0;
-	color: #223254;
-	transition: all 0.15s ease;
-}
-input:hover {
-	background: rgba(34, 50, 84, 0.03);
-}
-input:not(:placeholder-shown) + span {
-	color: #0051ff;
-	transform: translateY(-26px) scale(0.75);
-}
-input:focus {
-	background: none;
-	outline: none;
-}
-input:focus + span {
-	transform: translateY(-26px) scale(0.75);
-}
-input:focus + span + .border {
-	transform: scaleX(1);
-}
-
-/*  SECTIONS  */
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
-}
-
-/*  COLUMN SETUP  */
-.col {
-	display: block;
-	float: left;
-	margin: 1% 0 1% 1%;
-}
-
-.col:first-child {
-	margin-left: 0;
-}
-
-/*  GROUPING  */
-.group:before,
-.group:after {
-	content: '';
-	display: table;
-}
-
-.group:after {
-	clear: both;
-}
-
-.group {
-	zoom: 1;
-	/* For IE 6/7 */
-}
-
-.span_5_of_5 {
-	width: 100%;
-}
-
-.span_4_of_5 {
-	width: 79.8%;
-}
-
-.span_3_of_5 {
-	width: 59.6%;
-}
-
-.span_2_of_5 {
-	width: 39.4%;
-}
-
-.span_1_of_5 {
-	width: 19.2%;
-}
-
-/*  GO FULL WIDTH BELOW 480 PIXELS */
-@media only screen and (max-width: 480px) {
-	.col {
-		margin: 1% 0 1% 0%;
+@media (min-width: 719px) {
+	body {
+		background-size: cover;
 	}
-
-	.span_1_of_5,
-	.span_2_of_5,
-	.span_3_of_5,
-	.span_4_of_5,
-	.span_5_of_5 {
-		width: 100%;
+	header > a > img {
+		width: 4rem;
 	}
-}
-.logo {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding-bottom: 7%;
-}
-.logo img {
-	max-width: 15%;
+	header > a > h1 {
+		font-size: 3rem;
+	}
 }

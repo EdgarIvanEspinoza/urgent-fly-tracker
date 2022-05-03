@@ -6,51 +6,42 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/stylesheet/style.css" />
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-		<link
+		<!-- <link
 			rel="stylesheet"
 			href="./node_modules/easy-autocomplete/dist/easy-autocomplete.min.css"
-		/>
+		/> -->
 		<script src="./node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
 		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
 		<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
 
-		<title>Urgent Fly Tracker</title>
+		<title>Your flight</title>
 	</head>
-	<body>
+	<body id="bodyResults">
 		<header>
 			<img src="/img/logo.png" alt="logo" />
 			<a href="./index.html"><h1>Espinoza Airline</h1></a>
 		</header>
-		<section id="searchArea">
-			<fieldset id="searchForm">
-				<div class="boxed">
-					<label for="origin"><img src="/img/gps.png" alt="pin" /> Origin</label
-					><br />
-					<input
-						type="text"
-						name="origin"
-						id="origin"
-						placeholder="City / IATA"
-					/>
-					<input type="hidden" id="originIATA" name="originIATA" />
+		<section id="flightDetails">
+			<p>
+				<img src="/img/gps.png" alt="pin" />
+				<span id="originResult">Origin</span>
+				-
+				<span id="destinationResult">Destination</span>
+			</p>
+			<p>|</p>
+			<p>Solo ida</p>
+		</section>
+		<section id="departureDate">2022-03-05</section>
+		<section id="responseArea">
+			<div class="boxed">
+				<img src="/img/avion2.gif" alt="search" />
+				<h2>$ <span id="priceResult">Price</span></h2>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+					><button>Buy ticket</button></a
+				>
 
-					<br />
-					<label for="destination"
-						><img src="/img/gps.png" alt="pin" />Destination</label
-					><br />
-					<input
-						type="text"
-						name="destination"
-						id="destination"
-						placeholder="City / IATA"
-					/>
-					<input type="hidden" id="destinationIATA" name="destinationIATA" />
-				</div>
-				<br />
-				<!-- <a href="/resultados.html"> -->
-				<button onclick="flightSearch()">Search</button>
-				<!-- </a> -->
-			</fieldset>
+				<p><img src="/img/plane-ticket.png" alt="ticket" />The best offer</p>
+			</div>
 		</section>
 		<footer>
 			<h5>Follow us</h5>
@@ -64,7 +55,7 @@
 				<a href="https://www.linkedin.com/in/edgarivanespinoza/"
 					><img src="/img/linkedin.png" alt="linkedin"
 				/></a>
-				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+				<a href="https://www.youtube.com/watch?v=L_jWHffIx5E"
 					><img src="/img/youtube.png" alt="Youtube"
 				/></a>
 			</div>
@@ -80,4 +71,17 @@
 		</footer>
 	</body>
 	<script src="script.js"></script>
+	<script>
+		const departureDate = localStorage.getItem('departureDate');
+		document.getElementById('originResult').innerHTML =
+			localStorage.getItem('originFlight');
+		document.getElementById('destinationResult').innerHTML =
+			localStorage.getItem('destinationFlight');
+		document.getElementById(
+			'departureDate'
+		).innerHTML = `${localStorage.getItem('departureDate')}`;
+		document.getElementById('priceResult').innerHTML = `${localStorage.getItem(
+			'priceResult'
+		)}`;
+	</script>
 </html>

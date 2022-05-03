@@ -1,8 +1,63 @@
 let apiToken = '';
+var optionsOrigin = {
+	url: '/airports.json',
+
+	getValue: function (item) {
+		return item.City + ' - ' + item.IATA;
+	},
+	list: {
+		match: {
+			enabled: true,
+		},
+		onSelectItemEvent: function () {
+			var value = $('#origin').getSelectedItemData().IATA; //get the id associated with the selected value
+			console.log(value);
+			$('#originIATA').val(value).trigger('change'); //copy it to the hidden field
+		},
+	},
+	template: {
+		type: 'custom',
+		method: function (value, item) {
+			return item.Airport + ' | ' + item.IATA;
+		},
+	},
+};
+var optionsDestination = {
+	url: '/airports.json',
+
+	getValue: function (item) {
+		return item.City + ' - ' + item.IATA;
+	},
+	list: {
+		match: {
+			enabled: true,
+		},
+		onSelectItemEvent: function () {
+			var value = $('#destination').getSelectedItemData().IATA; //get the id associated with the selected value
+			console.log(value);
+			$('#destinationIATA').val(value).trigger('change'); //copy it to the hidden field
+		},
+	},
+	template: {
+		type: 'custom',
+		method: function (value, item) {
+			return item.Airport + ' | ' + item.IATA;
+		},
+	},
+};
 
 //Genero fecha del dia siguiente
 const date = new Date();
 date.setDate(date.getDate() + 1);
+console.log(date);
+
+// Formato de peticion de fecha
+function formatDate(date) {
+	const year = date.getFullYear();
+	let month = (date.getMonth() + 1).toString().padStart(2, '0');
+	let day = date.getDate().toString().padStart(2, '0');
+	return `${year}-${month}-${day}`;
+}
 
 //Peticion de Token nuevo para empezar la busqueda
 var myHeaders = new Headers();
@@ -32,17 +87,26 @@ fetch('https://test.api.amadeus.com/v1/security/oauth2/token', requestOptions)
 
 //Funcion que voy a llamar para hacer la busqueda con 3 parametros Token generado, lugar de origen y destino
 function flightSearch() {
-	console.log(apiToken);
+	const originIATA = document.getElementById('origin').value;
+	const destinationIATA = document.getElementById('destination').value;
+	let origin = document.getElementById('originIATA').value;
+	let destination = document.getElementById('destinationIATA').value;
+	const departureDate = formatDate(date);
 
-	const origin = document.getElementById('origin').value;
-	console.log(origin);
+	if (
+		/^([A-Za-z]{3})$/g.test(originIATA) &&
+		/^([A-Za-z]{3})$/g.test(destinationIATA)
+	) {
+		origin = originIATA.toUpperCase();
+		destination = destinationIATA.toUpperCase();
+	}
 
-	const destination = document.getElementById('destination').value;
-	console.log(destination);
+	if (!originIATA || !destinationIATA) {
+		return alert('Please use a valid City or IATA.');
+		location.reload();
+	}
 
-	const departureDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`;
-	console.log(departureDate);
-
+	// location.replace('/resultados.html');
 	var myHeaders = new Headers();
 	myHeaders.append('Authorization', `Bearer ${apiToken}`);
 
@@ -53,26 +117,44 @@ function flightSearch() {
 	};
 
 	fetch(
-		`https://test.api.amadeus.com/v1/shopping/flight-dates?origin=${origin}&destination=${destination}&departureDate=2022-04-29&oneWay=true`,
+		`https://test.api.amadeus.com/v1/shopping/flight-dates?origin=${origin}&destination=${destination}&departureDate=${departureDate}&oneWay=true`,
 		requestOptions
 	)
 		.then((response) => response.json())
 		.then((result) => {
 			console.log(result);
-			document.getElementById('originResult').innerHTML = origin;
-			document.getElementById('destinationResult').innerHTML = destination;
-			document.getElementById('priceResult').innerHTML =
-				result.data[0].price.total;
+			if (result.errors != null) {
+				switch (result.errors[0].detail) {
+					case 'City/Airport must be a 3-character IATA code (https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code).':
+						alert('Your input must be a valid city or IATA code.');
+						location.reload();
+						break;
+					case 'ORIGIN AND DESTINATION NOT SUPPORTED':
+						alert('The are no flight for tomorrow for this destination.');
+						location.reload();
+						break;
+					default:
+						alert('Error in someplace i dont know. Maybe the API is failing');
+						location.reload();
+				}
+			}
+			localStorage.setItem('originFlight', origin);
+			localStorage.setItem('destinationFlight', destination);
+			localStorage.setItem('departureDate', departureDate);
+			localStorage.setItem('priceResult', result.data[0].price.total);
+			location.replace('resultados.html');
 		})
-		.catch((error) => console.log('error', error));
+		.catch((error) => {
+			console.log('error', error);
+		});
 }
 
-//Auto complete del formulario
-function initialize() {
-	var input = document.getElementById('origin');
-	new google.maps.places.Autocomplete(input).setTypes(['airport']);
-	var input2 = document.getElementById('destination');
-	new google.maps.places.Autocomplete(input2).setTypes(['airport']);
-}
+//AUTOCOMPLETE
 
-google.maps.event.addDomListener(window, 'load', initialize);
+$('#origin').easyAutocomplete(optionsOrigin);
+$('#destination').easyAutocomplete(optionsDestination);
+
+$('#searchForm').on('submit', function (e) {
+	e.preventDefault();
+	console.log($(this).serialize());
+});
