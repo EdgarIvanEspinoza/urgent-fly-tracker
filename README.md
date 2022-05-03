@@ -12,7 +12,7 @@ Developer: [EdgarIvanEspinoza](https://github.com/EdgarIvanEspinoza)
 
 - Web: https://edgarivanespinoza.es/ (Work In Progress)
 
-## PROYECT
+## PROJECT
 
 - Live Proyect: https://edgarivanespinoza.es/urgent-fly
 - Github Proyect: https://github.com/EdgarIvanEspinoza/urgent-fly-hackaboss
