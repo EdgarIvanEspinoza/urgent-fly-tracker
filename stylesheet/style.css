@@ -119,7 +119,7 @@ fieldset > button {
 /* Flight Details */
 
 .top-banner {
-	width: 100%;
+	width: 100vw;
 	background-color: #f4f4f4;
 	display: flex;
 	flex-direction: column;
@@ -170,7 +170,7 @@ fieldset > button {
 	background-color: #f4f4f4;
 	width: 100%;
 	margin-top: -20px;
-	padding: 1rem;
+	padding: 1rem 0rem;
 	text-align: center;
 	font-size: 1rem;
 	font-weight: 700;
