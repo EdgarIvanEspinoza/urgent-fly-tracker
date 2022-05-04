@@ -10,14 +10,16 @@ HTML5 , CSS3 , and JavaScript ES6.
 Developer: [EdgarIvanEspinoza](https://github.com/EdgarIvanEspinoza)
 - Linkedin: https://www.linkedin.com/in/edgarivanespinoza/
 
-- Web: https://edgarivanespinoza.es/ (Work In Progress)
+- Web: https://edgarivanespinoza.com/ (Work In Progress)
 
 ## PROJECT
 
-- Live Proyect: https://edgarivanespinoza.es/urgent-fly
+- Live Project: https://edgarivanespinoza.com/urgent-fly (SEE IR WORKING)
 - Github Proyect: https://github.com/EdgarIvanEspinoza/urgent-fly-hackaboss
 
 ### AUTOCOMPLETE :
 // Thanks to http://easyautocomplete.com/
+
+Also thanks to [dayerlin-bustamante](https://github.com/dayerlin-bustamante) for helping me with creating a great design
 
 
